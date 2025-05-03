@@ -27,6 +27,7 @@ const getClass = async (req, res) => {
         { path: 'teachers' },
         { path: 'members' },
         { path: 'schedule' },
+        { path: 'chat' },
       ])
       .exec();
     if (!classes) {

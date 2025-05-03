@@ -68,21 +68,20 @@ export default function SchedulePage() {
                     const subject = sData.subjects.find(
                       (e) => e.day === day.order && e.time === timeSlot.order
                     );
-                    console.log(subject);
                     return (
                       <td
                         key={dayIndex}
                         className="py-3 px-2 border-r border-zinc-800 text-center"
                       >
-                        {subject.subject.name && (
+                        {subject && (
                           <div className="flex items-center justify-center gap-2">
                             <div
                               className="w-2 h-2 rounded-full"
                               style={{
-                                backgroundColor: subject.subject.color,
+                                backgroundColor: subject?.subject?.color,
                               }}
                             />
-                            <span>{subject.subject.name}</span>
+                            <span>{subject?.subject?.name}</span>
                           </div>
                         )}
                       </td>

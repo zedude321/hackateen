@@ -43,6 +43,12 @@ const ClassSchema = mongoose.Schema({
     required: false,
     default: null,
   },
+  chat: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'Chat',
+    required: false,
+    default: null,
+  },
 });
 
 ClassSchema.pre('save', async function (next) {

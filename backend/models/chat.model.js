@@ -4,7 +4,14 @@ const ChatSchema = mongoose.Schema({
   subject: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Subject',
-    required: true,
+    required: false,
+    default: null,
+  },
+  class: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Class',
+    required: false,
+    default: null,
   },
   sender: {
     type: mongoose.Schema.Types.ObjectId,
@@ -37,6 +44,23 @@ ChatSchema.pre('save', async function (next) {
         subject.chat = [this._id];
       }
       await subject.save();
+      next();
+    } catch (error) {
+      return next(error);
+    }
+  }
+  if (this.class) {
+    try {
+      const classModel = await mongoose.model('Class').findById(this.class);
+      if (!classModel) {
+        return next(new Error('Class not found'));
+      }
+      if (classModel.chat) {
+        classModel.chat.push(this._id);
+      } else {
+        classModel.chat = [this._id];
+      }
+      await classModel.save();
       next();
     } catch (error) {
       return next(error);
