@@ -4,7 +4,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useData } from "@/providers/dataProvider";
-import { FiArrowLeft, FiBook, FiCalendar, FiMessageSquare } from "react-icons/fi";
+import {
+  FiArrowLeft,
+  FiBook,
+  FiCalendar,
+  FiMessageSquare,
+} from "react-icons/fi";
 import { IoSchoolOutline } from "react-icons/io5";
 import { FaTasks } from "react-icons/fa";
 
@@ -17,20 +22,15 @@ export default function SubjectDetail() {
 
   useEffect(() => {
     if (data) {
-      // Find the subject by id, or use the index if no _id is available
-      const foundSubject = data.subjects.find(s => 
-        (s._id && s._id === id) || 
-        (data.subjects.indexOf(s) === parseInt(id))
-      );
-      
+      const foundSubject = data.subjects.find((s) => s._id && s._id === id);
+
       if (foundSubject) {
         setSubject({
           ...foundSubject,
-          // Initialize with mock data based on the schema model
           homework: foundSubject.homework || [],
           assignments: foundSubject.assignments || [],
           chat: foundSubject.chat || [],
-          class: foundSubject.class || { _id: "mock-class-id", name: "11A" }
+          class: foundSubject.class || { _id: "mock-class-id", name: "11A" },
         });
       }
       setLoading(false);
@@ -49,7 +49,10 @@ export default function SubjectDetail() {
     return (
       <div className="fixed right-0 bottom-0 w-[80vw] p-8 h-[90vh] flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold mb-4">Хичээл олдсонгүй</h1>
-        <Link href="/" className="text-indigo-500 hover:underline flex items-center">
+        <Link
+          href="/"
+          className="text-indigo-500 hover:underline flex items-center"
+        >
           <FiArrowLeft className="mr-2" /> Буцах
         </Link>
       </div>
@@ -60,12 +63,15 @@ export default function SubjectDetail() {
     <div className="fixed right-0 top-20 w-[80vw] p-8 h-screen overflow-y-auto">
       {/* Header with back navigation */}
       <div className="mb-8">
-        <Link href="/" className="text-indigo-500 hover:text-indigo-600 flex items-center w-fit">
+        <Link
+          href="/"
+          className="text-indigo-500 hover:text-indigo-600 flex items-center w-fit"
+        >
           <FiArrowLeft className="mr-2" /> Буцах
         </Link>
         <div className="mt-4 flex items-center">
-          <div 
-            className="h-5 w-5 rounded-full mr-3" 
+          <div
+            className="h-5 w-5 rounded-full mr-3"
             style={{ backgroundColor: subject.color || "#000000" }}
           />
           <h1 className="text-3xl font-bold">{subject.name}</h1>
@@ -81,7 +87,9 @@ export default function SubjectDetail() {
           </div>
           <div className="bg-zinc-800 p-4 rounded-lg">
             <p className="text-white/80">{subject.class?.name || "11A"}</p>
-            <p className="text-sm text-zinc-500">ID: {subject.class?._id || "mock-class-id"}</p>
+            <p className="text-sm text-zinc-500">
+              ID: {subject.class?._id || "mock-class-id"}
+            </p>
           </div>
         </div>
 

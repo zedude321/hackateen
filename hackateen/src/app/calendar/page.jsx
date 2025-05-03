@@ -27,6 +27,7 @@ export default function CalendarPage() {
               ...e,
               color: data.subjects.find((subject) => subject._id === e.subject)
                 .color,
+              due_date: new Date(e.due_date),
             };
           })
       );
@@ -47,6 +48,7 @@ export default function CalendarPage() {
               ...e,
               color: data.subjects.find((subject) => subject._id === e.subject)
                 .color,
+              due_date: new Date(e.due_date),
             };
           })
       );
@@ -76,5 +78,7 @@ export default function CalendarPage() {
     },
   ];
 
-  return <CalendarComponent events={events} className="row-span-2" />;
+  if (!ev) return null;
+
+  return <CalendarComponent events={ev} className="row-span-2" />;
 }

@@ -46,12 +46,19 @@ export default function Calendar({ className, events }) {
   }
 
   const getEventsForDate = (date) => {
+    console.log(events.filter(
+      (event) => 
+        date && 
+        event.due_date.getDate() === date.getDate() && 
+        event.due_date.getMonth() === date.getMonth() && 
+        event.due_date.getFullYear() === date.getFullYear()
+    ))
     return events.filter(
       (event) => 
         date && 
-        event.date.getDate() === date.getDate() && 
-        event.date.getMonth() === date.getMonth() && 
-        event.date.getFullYear() === date.getFullYear()
+        event.due_date.getDate() === date.getDate() && 
+        event.due_date.getMonth() === date.getMonth() && 
+        event.due_date.getFullYear() === date.getFullYear()
     );
   };
 
@@ -106,7 +113,7 @@ export default function Calendar({ className, events }) {
           {days.map((date, index) => (
             <div
               key={index}
-              className={`h-24 border border-zinc-800 rounded-md p-1 ${
+              className={`h-24 border border-zinc-800 rounded-md p-1 overflow-hidden ${
                 !date ? 'bg-transparent' : 'hover:bg-zinc-900 cursor-pointer'
               } ${isToday(date) ? 'border-indigo-500' : ''} ${
                 isSelected(date) ? 'bg-zinc-900' : ''
@@ -127,7 +134,7 @@ export default function Calendar({ className, events }) {
                         className="text-xs p-1 rounded truncate"
                         style={{ backgroundColor: event.color + '33' }} // Add transparency
                       >
-                        {event.title}
+                        {event.name}
                       </div>
                     ))}
                   </div>
@@ -155,7 +162,7 @@ export default function Calendar({ className, events }) {
                   style={{ backgroundColor: event.color }}
                 ></div>
                 <div>
-                  <p className="font-medium">{event.title}</p>
+                  <p className="font-medium">{event.name}</p>
                 </div>
               </div>
             ))}
