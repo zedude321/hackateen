@@ -13,6 +13,7 @@ const getClass = async (req, res) => {
   const { id } = req.params;
   try {
     const classes = await ClassModel.findById(id)
+<<<<<<< Updated upstream
       .populate([
         {
           path: 'subjects',
@@ -29,6 +30,16 @@ const getClass = async (req, res) => {
         { path: 'schedule' },
         { path: 'chat' },
       ])
+=======
+      .populate({
+        path: 'subjects',
+        populate: [
+          { path: 'chat' },
+          { path: 'assignments' },
+          { path: 'homework' },
+        ],
+      })
+>>>>>>> Stashed changes
       .exec();
     if (!classes) {
       return res.status(404).json({ message: 'classes not found' });

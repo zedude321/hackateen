@@ -68,19 +68,13 @@ const Sidebar = () => {
 
         <div className="flex flex-col gap-3">
           {lessons.map((lesson, i) => (
-            <Link 
-              href={`/subject/${lesson._id || i}`} 
-              key={i} 
-              className="w-full"
-            >
-              <div className="flex items-center gap-3 text-white/80 hover:text-white cursor-pointer">
-                <div
-                  className="h-3 w-3 rounded-full"
-                  style={{ backgroundColor: lesson.color }}
-                />
-                <span className="text-sm">{lesson.name}</span>
-              </div>
-            </Link>
+            <div key={i} className="flex items-center gap-3">
+              <div
+                className="h-3 w-3 rounded-full"
+                style={{ backgroundColor: lesson.color }}
+              />
+              <span className="text-white/80 text-sm">{lesson.name}</span>
+            </div>
           ))}
         </div>
       </div>
