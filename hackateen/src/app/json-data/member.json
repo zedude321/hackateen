@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Battugs",
+    "mail": "b.battugs11@gmail.com",
+    "type": "Owner",
+    "img": "https://scontent.fuln1-2.fna.fbcdn.net/v/t39.30808-1/440239017_920970493160269_5977550615180060357_n.jpg?stp=dst-jpg_p480x480&_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=NH81neX1NOQQ7kNvgGjbNy2&_nc_ht=scontent.fuln1-2.fna&oh=00_AYCX_jvOya36PZGX4eRY1J4fNrxxxaFhaJId4uMgxJZdNw&oe=6643B8BA",
+    "color": "#"
+  },
+  {
+    "id": 2,
+    "name": "Snchir_",
+    "mail": "sanchir@gmail.com",
+    "type": "Owner",
+    "img": "https://scontent.fuln6-2.fna.fbcdn.net/v/t39.30808-6/366325926_747924730353112_370797507479586540_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=wqhS8rQU638Q7kNvgFEeJgA&_nc_ht=scontent.fuln6-2.fna&oh=00_AYAOelUMDsWNH4Zzl1N5F2milAYyhr6q7IfpL-acDVUn6Q&oe=6643FEF2",
+    "color": "#"
+  },
+  {
+    "id": 3,
+    "name": "Zedude",
+    "mail": "zedude321@gmail.com",
+    "type": "Owner",
+    "img": "https://scontent.fuln6-2.fna.fbcdn.net/v/t39.30808-6/402193516_1313315896732293_1033845897272310504_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=JRjR_prb5hEQ7kNvgEWBuPY&_nc_ht=scontent.fuln6-2.fna&oh=00_AYCirEuZrAb37oiLBkNasp_-BZrZqmiXJ6FWJ5KaThzSOQ&oe=66443036",
+    "color": "#"
+  },
+  {
+    "id": 4,
+    "name": "Anar",
+    "mail": "t.anar2007@gmail.com",
+    "type": "Owner",
+    "img": "https://scontent.fuln6-1.fna.fbcdn.net/v/t39.30808-6/435700389_411693624823701_8162646862932494239_n.jpg?stp=cp6_dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=A8gf_LQi96cQ7kNvgE4pIJz&_nc_ht=scontent.fuln6-1.fna&oh=00_AYCa2Vo98fam4gNJJgAqhmSp_vPMfkjwfcbjbbS1vFeUJQ&oe=66441589",
+    "color": "#"
+  },
+
+  {
+    "id": 5,
+    "name": "Arius",
+    "mail": "tmulen2006@gmail.com",
+    "type": "Owner",
+    "img": "https://scontent.fuln6-2.fna.fbcdn.net/v/t39.30808-6/271301246_623888491998041_7546609080189866658_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=EtSQkZ0q5rsQ7kNvgHiXNag&_nc_ht=scontent.fuln6-2.fna&oh=00_AYDtR8uA3QcrPavzdHzzlUIR2hbfzqCHbOF4F11zXGwUcw&oe=66441C26",
+    "color": "#"
+  },
+  {
+    "id": 6,
+    "name": "Ebo Eno",
+    "mail": "xdeboyt12@gmail.com",
+    "type": "Owner",
+    "img": "https://scontent.fuln6-2.fna.fbcdn.net/v/t39.30808-6/271301246_623888491998041_7546609080189866658_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=EtSQkZ0q5rsQ7kNvgHiXNag&_nc_ht=scontent.fuln6-2.fna&oh=00_AYDtR8uA3QcrPavzdHzzlUIR2hbfzqCHbOF4F11zXGwUcw&oe=66441C26",
+    "color": "#"
+  }
+]
