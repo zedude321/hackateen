@@ -35,7 +35,7 @@ const SignUp = () => {
       console.error("Signup error:", err);
     }
   };
-
+  
   return (
     <div className="w-screen h-screen bg-dark-1 flex justify-center items-center flex-col gap-10 font-roboto">
       <a href="/">

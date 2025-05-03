@@ -66,7 +66,6 @@ export default function Login() {
             isHide="false"
           />
         </div>
-
         <button onClick={handleLogin} className="w-[80%]">
           <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">
             Нэвтрэх
