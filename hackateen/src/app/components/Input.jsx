@@ -7,7 +7,7 @@ export const InputLogin = ({ label, placeholder, ...other }) => {
       <input
         className="w-full h-[56px] border rounded-xl bg-dark-1 text-white-1 placeholder:text-white-1/60 text-md p-5 outline-0"
         placeholder={placeholder}
-        // {...other}
+        {...other}
       ></input>
     </div>
   );

@@ -1,22 +1,40 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/router";
 import { useState } from "react";
 import { InputLogin } from "../components/Input";
-// import { useAuth } from "@/auth/auth-provider";
-// import { DOMAIN_URL } from "@/utils/url";
-// import axios from "axios";
+import { useRouter } from "next/navigation";
+import { login } from "@/api/authentication";
+import { useAuth } from "@/providers/authProvider";
+
 export default function Login() {
   const router = useRouter();
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
-  // const { signIn } = useAuth();
+  const { login: setuser } = useAuth();
+
+  const handleLogin = async () => {
+    try {
+      const data = await login({ email: mail, password: pass });
+
+      if (!data) {
+        return;
+      }
+
+      setuser(data.data);
+
+      if (data.token) {
+        localStorage.setItem("jwtToken", data.token);
+        router.push("/");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+    }
+  };
+
   return (
     <div className="w-screen h-screen bg-dark-1 flex justify-center items-center flex-col gap-10 font-roboto">
       <a href="/">
         <svg
-          // width="168"
-          // height="29"
           viewBox="0 0 168 29"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -41,18 +59,14 @@ export default function Login() {
           />
           <InputLogin
             value={pass}
-            // onChange={(e) => setPass(e.target.value)}
+            onChange={(e) => setPass(e.target.value)}
             type="password"
             label="Нууц Үг"
             placeholder="Amjuulay123456"
             isHide="false"
           />
         </div>
-
-        <button
-          // onClick={confirm}
-          className="w-[80%]"
-        >
+        <button onClick={handleLogin} className="w-[80%]">
           <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">
             Нэвтрэх
           </div>
