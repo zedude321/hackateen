@@ -70,7 +70,7 @@ export default function ChatPage() {
       timestamp: "14:30",
     },
     {
-      id: 7,
+      id: 8,
       sender: "other",
       text: "За, маш сайн",
       timestamp: "14:30",
@@ -104,6 +104,7 @@ export default function ChatPage() {
                     ? "bg-indigo-600 text-white"
                     : "bg-zinc-800 text-white"
                 }`}
+                key={msg.id}
               >
                 <p>{msg.text}</p>
                 <p className="text-xs text-right mt-1 opacity-70">
