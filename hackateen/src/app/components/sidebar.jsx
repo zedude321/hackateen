@@ -86,7 +86,7 @@ const Sidebar = () => {
           </div>
         </Link>
         
-        <Link href="/" className="w-full">
+        <Link href="/chat" className="w-full">
           <div className="flex items-center gap-4 text-white/80 hover:text-white">
             <BsChat className="h-5 w-5" />
             <span className="text-sm">Чат</span>
