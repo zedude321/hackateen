@@ -1,20 +1,36 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
-import { CreateTeam } from "./components/create-team";
+import CreateTeam from "./components/create-team";
+
 export default function Home() {
   const [visible, setVisible] = useState(false);
 
   return (
-    <div className="fixed right-0 bottom-0 w-[80vw] p-4  h-[90vh] flex flex-col justify-between items-start">
+    <div className="fixed right-0 top-0 w-[80vw] h-screen overflow-y-auto">
       {visible && <CreateTeam setVisible={setVisible} />}
-      <p className="text-4xl font-bold block">Hello, Angry Pepe!</p>
-      <div className="w-full h-20 flex justify-end items-center">
+      
+      <div className="p-12 max-w-4xl">
+        <h1 className="text-5xl font-bold mb-6">Amjuulay.mn-д<br/>Тавтай морил!</h1>
+        
+        <p className="text-white/70 mb-5 text-lg">
+          Хэрэгтэй бүхэн хичээл, яагаад мэргэжил хийж чадахгүй байгаан биш би?
+        </p>
+        
+        <p className="text-white/70 mb-5 text-lg">
+          Манай сайт та бүхний хийх ёстой ажил, багийн хурал, даалгавар,
+          бие даалтаа хийхэд тань их хялбар, олгоцжуулсан
+          төлөвлөгөө гаргаж, туслана.
+        </p>
+        
+        <div className="mt-8">&nbsp;</div>
+      </div>
+      
+      <div className="fixed bottom-8 right-8">
         <button
-          className="w-40 h-16 rounded-2xl bg-blue-500"
           onClick={() => setVisible(true)}
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition duration-200"
         >
-          Start
+          Анги үүсэх
         </button>
       </div>
     </div>

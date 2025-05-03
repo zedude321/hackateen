@@ -3,7 +3,7 @@ import "./globals.css";
 import Sidebar from "./components/sidebar";
 import { Header } from "./components/header";
 import { AuthProvider } from "@/providers/authProvider";
-import { DataProvider } from "@/providers/dataProvider";
+import DataProvider from "@/providers/dataProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

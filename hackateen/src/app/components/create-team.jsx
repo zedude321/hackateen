@@ -1,78 +1,147 @@
-import { InputLogin } from "./Input";
 import { ColorButton } from "./color-button";
-import { Members } from "./member-card";
-import appereance from "../json-data/appearance.json";
-import members from "../json-data/member.json";
-import { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import { useState, useRef } from "react";
+import { FiSearch } from "react-icons/fi";
+import { IoChevronDownOutline } from "react-icons/io5";
 
-export function CreateTeam({ setVisible }) {
-  const [selected, setSelected] = useState(-1);
+export default function CreateTeam({ setVisible }) {
+  const [selected, setSelected] = useState(0);
   const [name, setName] = useState("");
+  const [searchText, setSearchText] = useState("");
   const ref = useRef(null);
+  
+  // Array of colors for selection
+  const colors = [
+    "#000000", // Black
+    "#6A3AEB", // Purple
+    "#8B5CF6", // Lighter Purple
+    "#3B82F6", // Blue
+    "#38BDF8", // Light Blue
+    "#2DD4BF", // Teal
+    "#10B981", // Green
+    "#FFFFFF", // White
+  ];
+  
+  // Member data for demonstration
+  const members = [
+    {
+      id: 1,
+      name: "Enkhbold Ebo",
+      email: "xlebdyt75@gmail.com",
+      avatar: "/enkhbold.jpg",
+      role: "Та өөрөө"
+    },
+    {
+      id: 2,
+      name: "Sanchir arunbold",
+      email: "Sanchiraruna@gmail.com",
+      avatar: "/sanchir.jpg"
+    },
+    {
+      id: 3,
+      name: "Zedude Nmbtr",
+      email: "Zedude321@gmail.com",
+      avatar: "/zedude.jpg"
+    }
+  ];
+
+  const handleSubmit = () => {
+    // Handle team creation logic here
+    setVisible(false);
+  };
+
   return (
-    <div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center backdrop-blur-sm p-4 z-0">
-      <div
-        ref={ref}
-        className="w-[50%] h-[90%] z-100 bg-dark-1 border rounded-3xl flex justify-center items-center flex-col"
-      >
-        <h1 className="text-2xl text-white-1 font-bold">Баг үүсгэх</h1>
-        <div className="w-[100%] h-auto flex justify-around gap-8 items-center flex-col">
-          <InputLogin
-            value={name}
-            // onChange={(e) => setName(e.target.value)}
-            label="Багын нэр"
-            isHide="true"
-          />
-          <div className="w-[80%] h-[56px] flex justify-between items-start flex-col font-roboto">
-            <div className="h-[16px] w-full flex justify-between items-center">
-              <p className="text-sm text-white-1/60 h-full">Өнгөө сонгох</p>
-            </div>
-            <div className="w-full h-[40px] flex justify-center items-center text-white-1 text-md">
-              <div className="w-full flex justify-between items-center">
-                {appereance.map((el, i) => {
-                  return (
-                    <ColorButton
-                      selected={selected}
-                      setSelected={setSelected}
-                      id={i}
-                      key={i}
-                      bg={el.color}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-          <InputLogin
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+      <div className="bg-zinc-900 w-[512px] rounded-lg p-8 text-white">
+        <h2 className="text-xl font-semibold text-center mb-6">Баг үүсгэх</h2>
+        
+        {/* Team Name */}
+        <div className="mb-6">
+          <label className="block text-sm text-zinc-400 mb-2">Багын нэр</label>
+          <input
             type="text"
-            label="Багын гишүүд"
-            placeholder="Имэйлээр багын гишүүдээ нэмэх"
-            isHide="false"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full bg-zinc-800 border-none rounded p-2 text-white outline-none"
+            placeholder="11A"
           />
-          <div className="w-full h-64 flex justify-between gap-[24px] items-center flex-col overflow-y-scroll">
-            {members.map((el) => {
-              return (
-                <Members
-                  key={el.id}
-                  img={el.img}
-                  name={el.name}
-                  mail={el.mail}
-                />
-              );
-            })}
+        </div>
+        
+        {/* Color Selection */}
+        <div className="mb-6">
+          <div className="flex justify-between items-center mb-2">
+            <label className="block text-sm text-zinc-400">Өнгөө сонгох</label>
+            <div className="text-xs px-2 py-1 bg-zinc-800 rounded text-zinc-400"># F5f5f5</div>
+          </div>
+          <div className="flex space-x-2">
+            {colors.map((color, index) => (
+              <ColorButton
+                key={index}
+                bg={color}
+                selected={selected}
+                setSelected={setSelected}
+                id={index}
+              />
+            ))}
           </div>
         </div>
-
-        <button
-          onClick={() => {
-            setVisible(false);
-          }}
-          className="w-[80%] h-[60px] flex justify-center items-center"
-        >
-          <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">
-            Багаа үүсгэх
+        
+        {/* Team Members */}
+        <div className="mb-6">
+          <label className="block text-sm text-zinc-400 mb-2">Багын гишүүд</label>
+          <div className="relative mb-4">
+            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-zinc-500" />
+            <input
+              type="text"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              className="w-full bg-zinc-800 border-none rounded-lg pl-10 pr-4 py-3 text-white outline-none"
+              placeholder="Имэйлээр багын гишүүдээ нэмэх"
+            />
           </div>
+          
+          {/* Member List */}
+          <div className="space-y-3">
+            {members.map((member) => (
+              <div key={member.id} className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-zinc-700 overflow-hidden">
+                    {member.avatar ? (
+                      <img 
+                        src={member.avatar} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover" 
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-white">
+                        {member.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">{member.name}</p>
+                    <p className="text-xs text-zinc-400">{member.email}</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  {member.role ? (
+                    <span className="text-xs text-zinc-400">{member.role}</span>
+                  ) : (
+                    <button className="text-sm text-zinc-400 flex items-center">
+                      Гишүүн <IoChevronDownOutline className="ml-1" />
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Submit Button */}
+        <button
+          onClick={handleSubmit}
+          className="w-full bg-white hover:bg-zinc-200 text-black font-medium py-3 rounded-lg transition duration-200"
+        >
+          Багаа үүсгэх
         </button>
       </div>
     </div>
