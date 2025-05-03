@@ -10,6 +10,7 @@ import { FaRegClock, FaPlus } from "react-icons/fa";
 import { MdOutlineAnnouncement } from "react-icons/md";
 import { BsChat } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
+import Link from "next/link";
 
 const Sidebar = () => {
   const lessons = [
@@ -55,76 +56,78 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="fixed left-0 top-0 w-[20vw] h-screen flex flex-col justify-between items-auto gap-10 border-r border-white/60 h-screen flex flex-col transition-all duration-300">
-      <div className="w-full h-4/5">
-        <div className="w-full h-20 border-b-[1px] border-white/60 flex justify-around items-center">
-          <svg
-            viewBox="0 0 168 29"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-fit pl-8"
-          >
-            <path
-              d="M12.1283 19.024H5.84034L4.83234 22H0.536344L6.63234 5.152H11.3843L17.4803 22H13.1363L12.1283 19.024ZM11.0723 15.856L8.98434 9.688L6.92034 15.856H11.0723ZM36.4237 8.464C38.0877 8.464 39.4077 8.968 40.3837 9.976C41.3757 10.984 41.8717 12.384 41.8717 14.176V22H37.7917V14.728C37.7917 13.864 37.5597 13.2 37.0957 12.736C36.6477 12.256 36.0237 12.016 35.2237 12.016C34.4237 12.016 33.7917 12.256 33.3277 12.736C32.8797 13.2 32.6557 13.864 32.6557 14.728V22H28.5757V14.728C28.5757 13.864 28.3437 13.2 27.8797 12.736C27.4317 12.256 26.8077 12.016 26.0077 12.016C25.2077 12.016 24.5757 12.256 24.1117 12.736C23.6637 13.2 23.4397 13.864 23.4397 14.728V22H19.3357V8.608H23.4397V10.288C23.8557 9.728 24.3997 9.288 25.0717 8.968C25.7437 8.632 26.5037 8.464 27.3517 8.464C28.3597 8.464 29.2557 8.68 30.0397 9.112C30.8397 9.544 31.4637 10.16 31.9117 10.96C32.3757 10.224 33.0077 9.624 33.8077 9.16C34.6077 8.696 35.4797 8.464 36.4237 8.464ZM46.7819 7.216C46.0619 7.216 45.4699 7.008 45.0059 6.592C44.5579 6.16 44.3339 5.632 44.3339 5.008C44.3339 4.368 44.5579 3.84 45.0059 3.424C45.4699 2.992 46.0619 2.776 46.7819 2.776C47.4859 2.776 48.0619 2.992 48.5099 3.424C48.9739 3.84 49.2059 4.368 49.2059 5.008C49.2059 5.632 48.9739 6.16 48.5099 6.592C48.0619 7.008 47.4859 7.216 46.7819 7.216ZM48.8459 23.728C48.8459 25.376 48.4299 26.56 47.5979 27.28C46.7659 28.016 45.6059 28.384 44.1179 28.384H42.5099V24.904H43.4939C43.9419 24.904 44.2619 24.816 44.4539 24.64C44.6459 24.464 44.7419 24.176 44.7419 23.776V8.608H48.8459V23.728ZM65.0206 8.608V22H60.9166V20.176C60.5006 20.768 59.9326 21.248 59.2126 21.616C58.5086 21.968 57.7246 22.144 56.8606 22.144C55.8366 22.144 54.9326 21.92 54.1486 21.472C53.3646 21.008 52.7566 20.344 52.3246 19.48C51.8926 18.616 51.6766 17.6 51.6766 16.432V8.608H55.7566V15.88C55.7566 16.776 55.9886 17.472 56.4526 17.968C56.9166 18.464 57.5406 18.712 58.3246 18.712C59.1246 18.712 59.7566 18.464 60.2206 17.968C60.6846 17.472 60.9166 16.776 60.9166 15.88V8.608H65.0206ZM81.1925 8.608V22H77.0885V20.176C76.6725 20.768 76.1045 21.248 75.3845 21.616C74.6805 21.968 73.8965 22.144 73.0325 22.144C72.0085 22.144 71.1045 21.92 70.3205 21.472C69.5365 21.008 68.9285 20.344 68.4965 19.48C68.0645 18.616 67.8485 17.6 67.8485 16.432V8.608H71.9285V15.88C71.9285 16.776 72.1605 17.472 72.6245 17.968C73.0885 18.464 73.7125 18.712 74.4965 18.712C75.2965 18.712 75.9285 18.464 76.3925 17.968C76.8565 17.472 77.0885 16.776 77.0885 15.88V8.608H81.1925ZM88.2443 4.24V22H84.1403V4.24H88.2443ZM90.4025 15.28C90.4025 13.904 90.6585 12.696 91.1705 11.656C91.6985 10.616 92.4105 9.816 93.3065 9.256C94.2025 8.696 95.2025 8.416 96.3065 8.416C97.2505 8.416 98.0745 8.608 98.7785 8.992C99.4985 9.376 100.05 9.88 100.434 10.504V8.608H104.538V22H100.434V20.104C100.034 20.728 99.4745 21.232 98.7545 21.616C98.0505 22 97.2265 22.192 96.2825 22.192C95.1945 22.192 94.2025 21.912 93.3065 21.352C92.4105 20.776 91.6985 19.968 91.1705 18.928C90.6585 17.872 90.4025 16.656 90.4025 15.28ZM100.434 15.304C100.434 14.28 100.146 13.472 99.5705 12.88C99.0105 12.288 98.3225 11.992 97.5065 11.992C96.6905 11.992 95.9945 12.288 95.4185 12.88C94.8585 13.456 94.5785 14.256 94.5785 15.28C94.5785 16.304 94.8585 17.12 95.4185 17.728C95.9945 18.32 96.6905 18.616 97.5065 18.616C98.3225 18.616 99.0105 18.32 99.5705 17.728C100.146 17.136 100.434 16.328 100.434 15.304ZM121.188 8.608L112.788 28.36H108.372L111.444 21.544L105.996 8.608H110.58L113.676 16.984L116.748 8.608H121.188ZM144.846 8.464C146.51 8.464 147.83 8.968 148.806 9.976C149.798 10.984 150.294 12.384 150.294 14.176V22H146.214V14.728C146.214 13.864 145.982 13.2 145.518 12.736C145.07 12.256 144.446 12.016 143.646 12.016C142.846 12.016 142.214 12.256 141.75 12.736C141.302 13.2 141.078 13.864 141.078 14.728V22H136.998V14.728C136.998 13.864 136.766 13.2 136.302 12.736C135.854 12.256 135.23 12.016 134.43 12.016C133.63 12.016 132.998 12.256 132.534 12.736C132.086 13.2 131.862 13.864 131.862 14.728V22H127.758V8.608H131.862V10.288C132.278 9.728 132.822 9.288 133.494 8.968C134.166 8.632 134.926 8.464 135.774 8.464C136.782 8.464 137.678 8.68 138.462 9.112C139.262 9.544 139.886 10.16 140.334 10.96C140.798 10.224 141.43 9.624 142.23 9.16C143.03 8.696 143.902 8.464 144.846 8.464ZM161.324 8.464C162.892 8.464 164.14 8.976 165.068 10C166.012 11.008 166.484 12.4 166.484 14.176V22H162.404V14.728C162.404 13.832 162.172 13.136 161.708 12.64C161.244 12.144 160.62 11.896 159.836 11.896C159.052 11.896 158.428 12.144 157.964 12.64C157.5 13.136 157.268 13.832 157.268 14.728V22H153.164V8.608H157.268V10.384C157.684 9.792 158.244 9.328 158.948 8.992C159.652 8.64 160.444 8.464 161.324 8.464Z"
-              fill="#F7F7F7"
-            />
-            <circle cx="122" cy="20" r="2" fill="#0E66FF" />
-          </svg>
-          <FiChevronsLeft className="text-white-1/60 h-5 w-5" />
-        </div>
-        <div className="w-full flex flex-col flex-1 p-5 pt-3 divide-y divide-white/60 opacity-60">
-          <div className="w-full gap-4 pb-6 flex flex-col justify-around items-start border-b-[1px]">
-            <div className="flex gap-6 justify-center items-center">
-              <FaRegClock className="h-6 w-6" />
-              <p className="text-md font-semibold">Хуваарь</p>
-            </div>{" "}
-            <div className="flex gap-6 justify-center items-center">
-              <FiCalendar className="h-6 w-6" />
-              <p className="text-md font-semibold">Календар</p>
-            </div>{" "}
-            <div className="flex gap-6 justify-center items-center">
-              <MdOutlineAnnouncement className="h-6 w-6" />
-              <p className="text-md font-semibold">Мэдэгдэл</p>
-            </div>{" "}
-            <div className="flex gap-6 justify-center items-center">
-              <BsChat className="h-6 w-6" />
-              <p className="text-md font-semibold">Чат</p>
-            </div>
-          </div>
-
-          <div className="w-full gap-4 p-4 flex flex-col justify-around items-center">
-            <div className="w-full flex justify-between items-center">
-              <p className="text-md font-semibold uppercase">Хичээлүүд</p>
-              <FaPlus />
-            </div>
-            <div className="w-full flex justify-between items-center flex-col gap-2">
-              {lessons.map((el) => (
-                <div
-                  className="w-full flex justify-start items-center gap-4"
-                  key={el.key}
-                >
-                  <div
-                    className="w-4 h-4 rounded-full"
-                    style={{ backgroundColor: `${el.color}` }}
-                  />
-                  <p className="text-md font-md">{el.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>{" "}
+    <div className="fixed left-0 top-0 w-[240px] h-screen bg-black flex flex-col border-r border-zinc-800">
+      {/* Header */}
+      <div className="w-full h-16 border-b border-zinc-800 flex justify-between items-center px-5">
+        <h1 className="text-white text-lg font-semibold">Amjuulay mn</h1>
+        <FiChevronsLeft className="text-white h-5 w-5 cursor-pointer" />
       </div>
-      <div className="w-full h-20 flex justify-center items-center p-5 pt-3  opacity-60">
-        <div className="w-full h-full border-t-[1px] flex justify-between items-center">
-          <div className="w-1/2 flex justify-between items-center">
-            {" "}
-            <img
-              src="https://i.pinimg.com/236x/68/31/12/68311248ba2f6e0ba94ff6da62eac9f6.jpg"
-              className="w-8 h-8 rounded-full"
-            ></img>
-            <p>Angry Pepe</p>
+
+      {/* Main Menu */}
+      <div className="w-full flex flex-col p-5 gap-5">
+        <Link href="/" className="w-full">
+          <div className="flex items-center gap-4 text-white/80 hover:text-white">
+            <FaRegClock className="h-5 w-5" />
+            <span className="text-sm">Хуваарь</span>
           </div>
-          <IoSettingsSharp className="h-6 w-6" />
+        </Link>
+        
+        <Link href="/" className="w-full">
+          <div className="flex items-center gap-4 text-white/80 hover:text-white">
+            <FiCalendar className="h-5 w-5" />
+            <span className="text-sm">Календар</span>
+          </div>
+        </Link>
+        
+        <Link href="/notification" className="w-full">
+          <div className="flex items-center gap-4 text-white/80 hover:text-white">
+            <MdOutlineAnnouncement className="h-5 w-5" />
+            <span className="text-sm">Мэдэгдэл</span>
+          </div>
+        </Link>
+        
+        <Link href="/" className="w-full">
+          <div className="flex items-center gap-4 text-white/80 hover:text-white">
+            <BsChat className="h-5 w-5" />
+            <span className="text-sm">Чат</span>
+          </div>
+        </Link>
+      </div>
+
+      {/* Lessons Section */}
+      <div className="w-full px-5 py-3 border-t border-zinc-800 mt-2">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-white/60 text-xs uppercase">Хичээлүүд</h2>
+          <button className="text-white/60 hover:text-white">
+            <FiPlus className="h-4 w-4" />
+          </button>
+        </div>
+        
+        <div className="flex flex-col gap-3">
+          {lessons.map((lesson) => (
+            <div key={lesson.key} className="flex items-center gap-3">
+              <div 
+                className="h-3 w-3 rounded-full" 
+                style={{ backgroundColor: lesson.color }}
+              />
+              <span className="text-white/80 text-sm">{lesson.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* User Profile */}
+      <div className="mt-auto border-t border-zinc-800 p-5">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img 
+              src="https://i.pinimg.com/236x/68/31/12/68311248ba2f6e0ba94ff6da62eac9f6.jpg" 
+              alt="User Avatar" 
+              className="h-8 w-8 rounded-full object-cover"
+            />
+            <span className="text-white/80 text-sm">Angry Pepe</span>
+          </div>
+          <IoSettingsSharp className="text-white/60 h-5 w-5 cursor-pointer" />
         </div>
       </div>
     </div>
@@ -132,4 +135,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-//For Honor of Ebo🕊️🥀
