@@ -1,6 +1,6 @@
 export const sendChat = async (props) => {
   try {
-    const res = await fetch("http://localhost:8000/chats/create", {
+    const res = await fetch("https://hacketheeen.onrender.com/chats/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

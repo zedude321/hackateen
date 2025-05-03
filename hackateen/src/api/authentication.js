@@ -1,6 +1,6 @@
 export const login = async (props) => {
   try {
-    const response = await fetch("http://localhost:8000/users/login", {
+    const response = await fetch("https://hacketheeen.onrender.com/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const login = async (props) => {
 
 export const signup = async (props) => {
   try {
-    const response = await fetch("http://localhost:8000/users/create", {
+    const response = await fetch("https://hacketheeen.onrender.com/users/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const signup = async (props) => {
 
 export const getUsers = async () => {
   try {
-    const response = await fetch("http://localhost:8000/users/");
+    const response = await fetch("https://hacketheeen.onrender.com/users/");
     if (!response.ok) {
       throw new Error(
         `Network response was not ok: ${response.status} ${response.statusText}`

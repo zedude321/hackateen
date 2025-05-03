@@ -104,7 +104,7 @@ export default function SubjectDetail() {
               {subject.homework.map((hw, index) => (
                 <li key={index} className="bg-zinc-800 p-4 rounded-lg">
                   <p className="text-white/80">Даалгавар {index + 1}</p>
-                  <p className="text-sm text-zinc-500">ID: {hw}</p>
+                  <p className="text-sm text-zinc-500">ID: {hw.name}</p>
                 </li>
               ))}
             </ul>
@@ -126,7 +126,7 @@ export default function SubjectDetail() {
               {subject.assignments.map((assignment, index) => (
                 <li key={index} className="bg-zinc-800 p-4 rounded-lg">
                   <p className="text-white/80">Даалгавар {index + 1}</p>
-                  <p className="text-sm text-zinc-500">ID: {assignment}</p>
+                  <p className="text-sm text-zinc-500">ID: {assignment.name}</p>
                 </li>
               ))}
             </ul>
@@ -148,7 +148,7 @@ export default function SubjectDetail() {
               {subject.chat.map((chat, index) => (
                 <li key={index} className="bg-zinc-800 p-4 rounded-lg">
                   <p className="text-white/80">Чат {index + 1}</p>
-                  <p className="text-sm text-zinc-500">ID: {chat}</p>
+                  <p className="text-sm text-zinc-500">ID: {chat._id}</p>
                 </li>
               ))}
             </ul>

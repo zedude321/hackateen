@@ -1,6 +1,8 @@
 export const getClass = async (props) => {
   try {
-    const res = await fetch("http://localhost:8000/classes/" + props.classId);
+    const res = await fetch(
+      "https://hacketheeen.onrender.com/classes/" + props.classId
+    );
     if (!res.ok) {
       throw new Error(`Network res was not ok: ${res.status}`);
     }
