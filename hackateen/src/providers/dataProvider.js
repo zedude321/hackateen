@@ -16,7 +16,7 @@ export const DataProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (user && !data) {
+    if (user) {
       const func = async () => {
         const data = await getClass({
           classId: user?.classes[0],
@@ -24,20 +24,11 @@ export const DataProvider = ({ children }) => {
 
         setData(data.data);
         console.log(data.data);
-        localStorage.setItem("class", JSON.stringify(data.data));
       };
 
       func();
     }
-  }, [user, data]);
-
-  useEffect(() => {
-    const storedClass = localStorage.getItem("class");
-    if (storedClass) {
-      setData(JSON.parse(storedClass));
-      console.log(JSON.parse(storedClass));
-    }
-  }, []);
+  }, [user]);
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };

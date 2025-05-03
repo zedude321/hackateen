@@ -13,14 +13,21 @@ const getClass = async (req, res) => {
   const { id } = req.params;
   try {
     const classes = await ClassModel.findById(id)
-      .populate({
-        path: 'subjects',
-        populate: [
-          { path: 'chat' },
-          { path: 'assignments' },
-          { path: 'homework' },
-        ],
-      })
+      .populate([
+        {
+          path: 'subjects',
+          populate: [
+            { path: 'chat' },
+            { path: 'assignments' },
+            { path: 'homework' },
+          ],
+        },
+        { path: 'announcements' },
+        { path: 'admins' },
+        { path: 'teachers' },
+        { path: 'members' },
+        { path: 'schedule' },
+      ])
       .exec();
     if (!classes) {
       return res.status(404).json({ message: 'classes not found' });

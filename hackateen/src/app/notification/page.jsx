@@ -1,13 +1,21 @@
 "use client";
 
 import { FiMoreVertical, FiPlus } from "react-icons/fi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { useData } from "@/providers/dataProvider";
 
 export default function NotificationPage() {
   const [showAccountPopover, setShowAccountPopover] = useState(false);
   const [showPollPopover, setShowPollPopover] = useState(false);
   const [pollOptions, setPollOptions] = useState([""]);
+  const { data } = useData();
+
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+    }
+  }, [data]);
 
   // Handle option input change
   const handleOptionChange = (index, value) => {
@@ -35,60 +43,26 @@ export default function NotificationPage() {
         <h2 className="text-lg font-medium mb-4">Данс</h2>
 
         {/* Account Card 1 */}
-        <div className="bg-zinc-900 rounded-md mb-4">
-          <div className="p-4">
-            <div className="flex justify-between items-center">
-              <h3 className="text-base font-normal">
-                Аялалын фонтны мөнгө, хүний 200к
-              </h3>
-              <button>
-                <FiMoreVertical className="text-white" />
-              </button>
-            </div>
+        {data?.announcements.map(
+          (e, i) =>
+            e.type == "payment" && (
+              <div key={i} className="bg-zinc-900 rounded-md mb-4">
+                <div className="p-4">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-base font-normal">{e.name}</h3>
+                  </div>
 
-            <div className="mt-2">
-              <div className="flex gap-1">
-                <span className="text-gray-400 text-sm">Хаан Банк:</span>
-                <span className="text-purple-500 text-sm">569499394</span>
+                  <div className="mt-2">
+                    <div className="flex gap-1">
+                      <span className="text-gray-400 text-sm">
+                        {e.description}
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex gap-1">
-                <span className="text-gray-400 text-sm">Голомт Банк:</span>
-                <span className="text-blue-500 text-sm">1175197592</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Account Card 2 */}
-        <div className="bg-zinc-900 rounded-md mb-4">
-          <div className="p-4">
-            <div className="flex justify-between items-center">
-              <h3 className="text-base font-normal">Музей үзэх, хүний 20к</h3>
-              <button>
-                <FiMoreVertical className="text-white" />
-              </button>
-            </div>
-
-            <div className="mt-2">
-              <div className="flex gap-1">
-                <span className="text-gray-400 text-sm">Хаан Банк:</span>
-                <span className="text-purple-500 text-sm">569499394</span>
-              </div>
-              <div className="flex gap-1">
-                <span className="text-gray-400 text-sm">Голомт Банк:</span>
-                <span className="text-blue-500 text-sm">1175197592</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Add New Button */}
-        <button
-          className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 rounded-md flex justify-center items-center"
-          onClick={() => setShowAccountPopover(true)}
-        >
-          <FiPlus className="text-white h-6 w-6" />
-        </button>
+            )
+        )}
       </section>
 
       {/* Poll Section */}
@@ -97,104 +71,41 @@ export default function NotificationPage() {
 
         <div className="flex w-full gap-4">
           {/* Poll Card 1 */}
-          <div className="bg-zinc-900 rounded-md p-4 w-2/5">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-base font-normal">Хуудас бөглөсөн</h3>
-              <button>
-                <FiMoreVertical className="text-white" />
-              </button>
-            </div>
+          {data?.announcements.map(
+            (e, i) =>
+              e.type == "poll" && (
+                <div key={i} className="bg-zinc-900 rounded-md p-4 w-2/5">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-base font-normal">{e.name}</h3>
+                  </div>
 
-            <div className="space-y-3 mb-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    id="poll1-yes"
-                    name="poll1"
-                    className="h-4 w-4 accent-indigo-600"
-                  />
-                  <label htmlFor="poll1-yes" className="text-sm">
-                    Тийм
-                  </label>
+                  <div className="space-y-3 mb-4">
+                    {e.possible_answers.map((e, i) => (
+                      <div
+                        key={100 + i}
+                        className="flex items-center justify-between"
+                      >
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="radio"
+                            id="poll1-yes"
+                            name="poll1"
+                            className="h-4 w-4 accent-indigo-600"
+                          />
+                          <label htmlFor="poll1-yes" className="text-sm">
+                            {e}
+                          </label>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <button className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white text-sm">
+                    Vote
+                  </button>
                 </div>
-                <span className="text-xs text-gray-400">10 vote</span>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    id="poll1-no"
-                    name="poll1"
-                    className="h-4 w-4 accent-indigo-600"
-                  />
-                  <label htmlFor="poll1-no" className="text-sm">
-                    Үгүй
-                  </label>
-                </div>
-                <span className="text-xs text-gray-400">8 vote</span>
-              </div>
-            </div>
-
-            <button className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white text-sm">
-              Vote
-            </button>
-          </div>
-
-          {/* Poll Card 2 */}
-          <div className="bg-zinc-900 rounded-md p-4 w-2/5">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-base font-normal">Аялалд явах</h3>
-              <button>
-                <FiMoreVertical className="text-white" />
-              </button>
-            </div>
-
-            <div className="space-y-3 mb-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    id="poll2-yes"
-                    name="poll2"
-                    className="h-4 w-4 accent-indigo-600"
-                  />
-                  <label htmlFor="poll2-yes" className="text-sm">
-                    Тийм
-                  </label>
-                </div>
-                <span className="text-xs text-gray-400">10 vote</span>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    id="poll2-no"
-                    name="poll2"
-                    className="h-4 w-4 accent-indigo-600"
-                  />
-                  <label htmlFor="poll2-no" className="text-sm">
-                    Үгүй
-                  </label>
-                </div>
-                <span className="text-xs text-gray-400">2 vote</span>
-              </div>
-            </div>
-
-            <button className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white text-sm">
-              Vote
-            </button>
-          </div>
-
-          {/* Add New Poll Button */}
-          <div
-            className="bg-indigo-600 hover:bg-indigo-700 rounded-md aspect-square flex justify-center items-center cursor-pointer w-1/5"
-            onClick={() => setShowPollPopover(true)}
-          >
-            <FiPlus className="text-white h-6 w-6" />
-          </div>
+              )
+          )}
         </div>
       </section>
 
