@@ -30,9 +30,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Sidebar />
-        {/* <Header /> */}
+        <Header />
         {children}
       </body>
     </html>
   );
 }
+//For Honor of Ebo🕊️🥀
