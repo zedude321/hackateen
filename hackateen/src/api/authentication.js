@@ -19,6 +19,7 @@ export const login = async (props) => {
 
     if (data.token) {
       localStorage.setItem("jwt", data.token);
+      localStorage.setItem("user", JSON.stringify(data.data));
     }
 
     return data;
@@ -46,6 +47,7 @@ export const signup = async (props) => {
 
     if (data.token) {
       localStorage.setItem("jwt", data.token);
+      localStorage.setItem("user", JSON.stringify(data.data));
     }
 
     return data;

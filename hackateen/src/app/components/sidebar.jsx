@@ -1,60 +1,23 @@
 "use client";
-import {
-  FiCalendar,
-  FiChevronsLeft,
-  FiHome,
-  FiMoreHorizontal,
-  FiPlus,
-} from "react-icons/fi";
-import { FaRegClock, FaPlus } from "react-icons/fa";
+import { FiCalendar, FiChevronsLeft, FiPlus } from "react-icons/fi";
+import { FaRegClock } from "react-icons/fa";
 import { MdOutlineAnnouncement } from "react-icons/md";
 import { BsChat } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useData } from "@/providers/dataProvider";
 
 const Sidebar = () => {
-  const lessons = [
-    {
-      key: "1",
-      name: "Математик",
-      color: "#C11700",
-    },
-    {
-      key: "2",
-      name: "Монгол хэл",
-      color: "#FF5A0E",
-    },
-    {
-      key: "3",
-      name: "Монгол бичиг",
-      color: "#FFF500",
-    },
-    {
-      key: "4",
-      name: "Хими",
-      color: "#418403",
-    },
-    {
-      key: "5",
-      name: "Нийгэм",
-      color: "#0164B5",
-    },
-    {
-      key: "6",
-      name: "Газарзүй",
-      color: "#23005E",
-    },
-    {
-      key: "7",
-      name: "Түүх",
-      color: "#5A040B",
-    },
-    {
-      key: "8",
-      name: "Англи хэл",
-      color: "#450100",
-    },
-  ];
+  const [lessons, setLessons] = useState([]);
+  const { data } = useData();
+
+  useEffect(() => {
+    if (data) {
+      setLessons(data.subjects);
+    }
+  }, [data]);
+  
   return (
     <div className="fixed left-0 top-0 w-[20vw] h-screen bg-black flex flex-col border-r border-zinc-800">
       {/* Header */}
@@ -104,8 +67,8 @@ const Sidebar = () => {
         </div>
 
         <div className="flex flex-col gap-3">
-          {lessons.map((lesson) => (
-            <div key={lesson.key} className="flex items-center gap-3">
+          {lessons.map((lesson, i) => (
+            <div key={i} className="flex items-center gap-3">
               <div
                 className="h-3 w-3 rounded-full"
                 style={{ backgroundColor: lesson.color }}

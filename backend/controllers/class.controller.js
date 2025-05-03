@@ -12,7 +12,16 @@ const getAllClasses = async (_, res) => {
 const getClass = async (req, res) => {
   const { id } = req.params;
   try {
-    const classes = await ClassModel.findById(id);
+    const classes = await ClassModel.findById(id)
+      .populate({
+        path: 'subjects',
+        populate: [
+          { path: 'chat' },
+          { path: 'assignments' },
+          { path: 'homework' },
+        ],
+      })
+      .exec();
     if (!classes) {
       return res.status(404).json({ message: 'classes not found' });
     }
