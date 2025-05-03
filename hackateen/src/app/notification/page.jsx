@@ -7,19 +7,19 @@ import { FiChevronDown } from "react-icons/fi";
 export default function NotificationPage() {
   const [showAccountPopover, setShowAccountPopover] = useState(false);
   const [showPollPopover, setShowPollPopover] = useState(false);
-  const [pollOptions, setPollOptions] = useState<string[]>(['']);
-  
+  const [pollOptions, setPollOptions] = useState([""]);
+
   // Handle option input change
-  const handleOptionChange = (index: number, value: string) => {
+  const handleOptionChange = (index, value) => {
     const newOptions = [...pollOptions];
     newOptions[index] = value;
     setPollOptions(newOptions);
-    
+
     // Add a new empty input when typing in the last field
     if (value.length > 0 && index === pollOptions.length - 1) {
-      setPollOptions([...newOptions, '']);
+      setPollOptions([...newOptions, ""]);
     }
-    
+
     // Remove empty options when backspacing
     if (value.length === 0 && index !== pollOptions.length - 1) {
       // Only remove if it's not the last input field
@@ -27,7 +27,7 @@ export default function NotificationPage() {
       setPollOptions(filteredOptions);
     }
   };
-  
+
   return (
     <div className="ml-[240px] min-h-screen bg-black text-white p-6 relative">
       {/* Account Section */}
@@ -189,7 +189,7 @@ export default function NotificationPage() {
           </div>
 
           {/* Add New Poll Button */}
-          <div 
+          <div
             className="bg-indigo-600 hover:bg-indigo-700 rounded-md aspect-square flex justify-center items-center cursor-pointer w-1/5"
             onClick={() => setShowPollPopover(true)}
           >
@@ -299,7 +299,7 @@ export default function NotificationPage() {
                 <label className="block text-sm mb-2 text-gray-400">
                   Сонголт
                 </label>
-                
+
                 {/* Dynamic Options Input Fields */}
                 <div className="space-y-2">
                   {pollOptions.map((option, index) => (
@@ -307,7 +307,9 @@ export default function NotificationPage() {
                       <input
                         type="text"
                         value={option}
-                        onChange={(e) => handleOptionChange(index, e.target.value)}
+                        onChange={(e) =>
+                          handleOptionChange(index, e.target.value)
+                        }
                         placeholder={index === 0 ? "Тийм" : "Сонголт нэмэх"}
                         className="w-full px-4 py-2 bg-zinc-800 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
                       />

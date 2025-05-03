@@ -1,6 +1,6 @@
 import { IoIosRemoveCircle } from "react-icons/io";
 
-export const Members = ({ img, name, mail }: any) => {
+export const Members = ({ img, name, mail }) => {
   return (
     <>
       <div className="w-[80%] h-[50px] flex justify-center items-start flex-col font-roboto ">

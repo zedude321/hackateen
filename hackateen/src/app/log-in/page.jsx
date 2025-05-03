@@ -34,7 +34,7 @@ export default function Login() {
         <div className="w-[100%] h-auto flex justify-center gap-4 items-center flex-col">
           <InputLogin
             value={mail}
-            // onChange={(e) => setMail(e.target.value)}
+            onChange={(e) => setMail(e.target.value)}
             label="Имэйл"
             placeholder="Amjuulay@gmail.com"
             isHide="true"
