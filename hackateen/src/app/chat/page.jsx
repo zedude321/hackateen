@@ -81,7 +81,7 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="ml-[240px] h-screen bg-black text-white flex flex-col overflow-hidden mt-20">
+    <div className="fixed bottom-0 right-0 w-[80vw] h-[92vh] bg-black text-white flex flex-col overflow-hidden ">
       <div className="flex-1 flex flex-col h-full relative">
         {/* Chat Header */}
         <div className="px-6 py-4 border-b border-zinc-800 flex justify-between items-center">
