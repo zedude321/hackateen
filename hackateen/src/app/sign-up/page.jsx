@@ -3,22 +3,43 @@ import React, { useState } from "react";
 
 import { InputLogin } from "../components/Input";
 import { GoDotFill } from "react-icons/go";
+import { signup } from "@/api/authentication";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/providers/authProvider";
 
-// import { DOMAIN_URL } from "@/utils/url";
-// import { useAuth } from "@/auth/auth-provider";
-// import axios from "axios";
-// import { useRouter } from "next/router";
 const SignUp = () => {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [passConf, setPassConf] = useState("");
+  const { login: setuser } = useAuth();
+
+  const handleSignup = async () => {
+    try {
+      const data = await signup({
+        email,
+        password: pass,
+        email,
+        phone_number: "11111111",
+      });
+      console.log(data);
+
+      setuser(data.data);
+
+      if (data.token) {
+        localStorage.setItem("jwtToken", data.token);
+        router.push("/");
+      }
+    } catch (err) {
+      console.error("Signup error:", err);
+    }
+  };
+
   return (
     <div className="w-screen h-screen bg-dark-1 flex justify-center items-center flex-col gap-10 font-roboto">
       <a href="/">
         <svg
-          // width="168"
-          // height="29"
           viewBox="0 0 168 29"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -37,27 +58,27 @@ const SignUp = () => {
         <div className="w-[100%] h-auto flex justify-center gap-4 items-center flex-col">
           <InputLogin
             value={name}
-            // onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             label="Нэр"
             placeholder="Amjuu Lay"
           />
           <InputLogin
             value={email}
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             label="Имэйл"
             placeholder="Amjuulay@gmail.com"
           />
           <InputLogin
             value={pass}
             type="password"
-            // onChange={(e) => setPass(e.target.value)}
+            onChange={(e) => setPass(e.target.value)}
             label="Нууц Үг"
             placeholder="Amjuulay123456"
           />
           <InputLogin
             type="password"
             value={passConf}
-            // onChange={(e) => setPassConf(e.target.value)}
+            onChange={(e) => setPassConf(e.target.value)}
             label="Нууц Үгээ Баталгаажуулах"
             placeholder="Amjuulay123456"
           />
@@ -71,11 +92,8 @@ const SignUp = () => {
             Тоо ашиглах (Жишээ нь: 1234)
           </p>
         </div>
-        <button
-          // onClick={confirm}
-          className="w-[80%]"
-        >
-          <div className="w-full h-[40px] bg-white text-dark text-md flex justify-center items-center rounded-3xl">
+        <button onClick={handleSignup} className="w-[80%]">
+          <div className="w-full h-[40px] cursor-pointer bg-white text-dark text-md flex justify-center items-center rounded-3xl">
             Бүртгүүлэх
           </div>
         </button>

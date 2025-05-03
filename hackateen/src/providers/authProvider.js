@@ -2,10 +2,10 @@
 
 import { createContext, useContext, useState } from "react";
 
-const AuthContext = (createContext < AuthContextType) | (undefined > undefined);
+const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = (useState < IUser) | (null > null);
+  const [user, setUser] = useState(null);
 
   const login = (userData) => setUser(userData);
   const logout = () => setUser(null);
