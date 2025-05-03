@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-export default function Calendar({ className }) {
+export default function Calendar({ className, events }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -44,14 +44,6 @@ export default function Calendar({ className }) {
   for (let i = 1; i <= daysInMonth; i++) {
     days.push(new Date(currentDate.getFullYear(), currentDate.getMonth(), i));
   }
-
-  // Sample events for demonstration
-  const events = [
-    { date: new Date(2025, 4, 5), title: "Математикийн шалгалт", color: "#C11700" },
-    { date: new Date(2025, 4, 10), title: "Монгол хэлний хичээл", color: "#FF5A0E" },
-    { date: new Date(2025, 4, 15), title: "Англи хэлний хичээл", color: "#FFCC00" },
-    { date: new Date(2025, 4, 20), title: "Биеийн тамирын өдөр", color: "#00AA11" },
-  ];
 
   const getEventsForDate = (date) => {
     return events.filter(

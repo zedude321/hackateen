@@ -64,13 +64,6 @@ const Sidebar = () => {
       <div className="w-full px-5 py-3 border-t border-zinc-800 mt-2">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-white/60 text-xs uppercase">Хичээлүүд</h2>
-<<<<<<< HEAD
-=======
-          //
-          <button>
-            <FiPlus className="h-5 w-5" />
-          </button>
->>>>>>> 0155208 (header subject geh)
         </div>
 
         <div className="flex flex-col gap-3">
