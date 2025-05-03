@@ -10,7 +10,7 @@ const {
 const userRouter = express.Router();
 
 userRouter.get('/', getAllUsers);
-userRouter.get('/login', loginUser);
+userRouter.post('/login', loginUser);
 userRouter.get('/:id', getUser);
 userRouter.post('/create', createUser);
 userRouter.patch('/update/:id', updateUser);
