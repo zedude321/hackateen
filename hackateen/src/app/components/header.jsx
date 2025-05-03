@@ -15,7 +15,7 @@ export const Header = () => {
         </div>
       </a>
       <a
-        href="/lesson/chat"
+        href="/lessonchat"
         className="w-1/3 h-full flex justify-center items-center rounded-xl bg-[#1F1F1F]/80 cursor-pointer"
       >
         <div className="w-full h-full flex justify-center items-center bg-[#1F1F1F]/80 cursor-pointer">
@@ -23,7 +23,7 @@ export const Header = () => {
         </div>
       </a>
       <a
-        href="/lessons/assignments"
+        href="/assignments"
         className="w-1/3 h-full flex justify-center items-center rounded-xl bg-[#1F1F1F]/80 cursor-pointer"
       >
         <div className="w-full h-full flex justify-center items-center bg-[#1F1F1F]/80 cursor-pointer">

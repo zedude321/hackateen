@@ -17,7 +17,7 @@ export default function ChatPage() {
   const chats = [
     {
       id: 1,
-      name: "12Б",
+      name: "Математик",
       avatar: "https://randomuser.me/api/portraits/men/1.jpg",
       lastMessage: "Гэрийн даалгавар хийсэн үү?",
       timestamp: "14:30",
@@ -69,6 +69,12 @@ export default function ChatPage() {
       text: "За, маш сайн",
       timestamp: "14:30",
     },
+    {
+      id: 7,
+      sender: "other",
+      text: "За, маш сайн",
+      timestamp: "14:30",
+    },
   ];
 
   const handleSendMessage = (e) => {
@@ -81,25 +87,8 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="ml-[240px] h-screen bg-black text-white flex flex-col overflow-hidden mt-20">
+    <div className="fixed right-0 bottom-0 w-[80vw] h-[92vh] bg-black text-white flex flex-col overflow-y-scroll mt-20">
       <div className="flex-1 flex flex-col h-full relative">
-        {/* Chat Header */}
-        <div className="px-6 py-4 border-b border-zinc-800 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <img
-              src={chats[activeChat].avatar}
-              alt={chats[activeChat].name}
-              className="w-10 h-10 rounded-full"
-            />
-            <div>
-              <h2 className="font-medium">{chats[activeChat].name}</h2>
-            </div>
-          </div>
-          <button className="text-zinc-400 hover:text-white">
-            <FiMoreVertical />
-          </button>
-        </div>
-
         {/* Messages */}
         <div className="flex-1 p-6 overflow-y-auto flex flex-col gap-4">
           {messages.map((msg) => (
@@ -124,7 +113,7 @@ export default function ChatPage() {
             </div>
           ))}
         </div>
-        <div className="border-t border-zinc-800 py-2 sticky bottom-1 bg-black">
+        <div className="h-20 border-t border-zinc-800 py-2 sticky bottom-1 bg-black">
           <div className="flex items-center bg-zinc-900 rounded-md mx-4 h-12">
             <input
               type="text"
