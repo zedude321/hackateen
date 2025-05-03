@@ -14,34 +14,42 @@ import { IoSettingsSharp } from "react-icons/io5";
 const Sidebar = () => {
   const lessons = [
     {
+      key: "1",
       name: "Математик",
       color: "#C11700",
     },
     {
+      key: "2",
       name: "Монгол хэл",
       color: "#FF5A0E",
     },
     {
+      key: "3",
       name: "Монгол бичиг",
       color: "#FFF500",
     },
     {
+      key: "4",
       name: "Хими",
       color: "#418403",
     },
     {
+      key: "5",
       name: "Нийгэм",
       color: "#0164B5",
     },
     {
+      key: "6",
       name: "Газарзүй",
       color: "#23005E",
     },
     {
+      key: "7",
       name: "Түүх",
       color: "#5A040B",
     },
     {
+      key: "8",
       name: "Англи хэл",
       color: "#450100",
     },
@@ -91,7 +99,10 @@ const Sidebar = () => {
             </div>
             <div className="w-full flex justify-between items-center flex-col gap-2">
               {lessons.map((el) => (
-                <div className="w-full flex justify-start items-center gap-4">
+                <div
+                  className="w-full flex justify-start items-center gap-4"
+                  key={el.key}
+                >
                   <div
                     className="w-4 h-4 rounded-full"
                     style={{ backgroundColor: `${el.color}` }}
@@ -121,3 +132,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+//For Honor of Ebo🕊️🥀
