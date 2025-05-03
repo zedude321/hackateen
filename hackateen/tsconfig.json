@@ -22,7 +22,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/providers/authProvider.js", "src/app/log-in/page.jsx", "src/app/sign-up/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/providers/authProvider.js", "src/app/log-in/page.jsx", "src/app/sign-up/page.jsx", "src/app/components/Input.jsx", "src/app/components/color-button.jsx", "src/app/components/create-team.jsx", "src/app/components/header.jsx", "src/app/components/member-card.jsx", "src/app/components/sidebar.jsx", "src/app/notification/page.jsx", "src/app/layout.jsx", "src/app/page.jsx", "src/api/authentication.js"],
   "exclude": ["node_modules"]
 }
 //For Honor of Ebo🕊️🥀

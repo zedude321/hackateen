@@ -1,4 +1,4 @@
-export const InputLogin = ({ label, placeholder, ...other }: any) => {
+export const InputLogin = ({ label, placeholder, ...other }) => {
   return (
     <div className="w-[80%] h-[80px] flex justify-around items-start flex-col font-roboto gap-2">
       <div className="h-[20px] w-full flex justify-between items-center">

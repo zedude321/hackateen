@@ -6,7 +6,7 @@ import members from "../json-data/member.json";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
-export function CreateTeam({ setVisible }: any) {
+export function CreateTeam({ setVisible }) {
   const [selected, setSelected] = useState(-1);
   const [name, setName] = useState("");
   const ref = useRef(null);

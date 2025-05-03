@@ -1,19 +1,4 @@
-interface Props {
-  email: string;
-  password: string;
-  username?: string;
-  phone_number?: string;
-}
-
-interface LoginProps {
-  (props: Props): Promise<void>;
-}
-
-interface SignupProps {
-  (props: Props): Promise<void>;
-}
-
-export const login: LoginProps = async (props: Props) => {
+export const login = async (props) => {
   try {
     const response = await fetch("http://localhost:8000/users/login", {
       method: "POST",
@@ -43,7 +28,7 @@ export const login: LoginProps = async (props: Props) => {
   }
 };
 
-export const signup: SignupProps = async (props: Props) => {
+export const signup = async (props) => {
   try {
     const response = await fetch("http://localhost:8000/users/create", {
       method: "POST",

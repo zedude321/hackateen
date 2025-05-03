@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const ColorButton = ({ bg, selected, setSelected, id }: any) => {
+export const ColorButton = ({ bg, selected, setSelected, id }) => {
   const setHandle = () => {
     setSelected(id);
   };
