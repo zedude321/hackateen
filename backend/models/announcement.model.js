@@ -38,6 +38,11 @@ const AnnouncementSchema = mongoose.Schema({
       },
     },
   ],
+  possible_answers: {
+    type: [String],
+    required: false,
+    default: null,
+  },
   required_people: {
     type: [mongoose.Schema.Types.ObjectId],
     ref: 'User',

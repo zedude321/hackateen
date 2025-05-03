@@ -22,7 +22,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/providers/authProvider.js", "src/app/log-in/page.jsx", "src/app/sign-up/page.jsx"],
   "exclude": ["node_modules"]
 }
 //For Honor of Ebo🕊️🥀
