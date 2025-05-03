@@ -34,8 +34,13 @@ const Sidebar = () => {
             <span className="text-sm">Хуваарь</span>
           </div>
         </Link>
+<<<<<<< HEAD
 
         <Link href="/" className="w-full">
+=======
+        
+        <Link href="/calendar" className="w-full">
+>>>>>>> bb28a54 (calendar nemsishu)
           <div className="flex items-center gap-4 text-white/80 hover:text-white">
             <FiCalendar className="h-5 w-5" />
             <span className="text-sm">Календар</span>
